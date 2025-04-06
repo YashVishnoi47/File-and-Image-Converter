@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-50">
-      <Dialog>
+      {/* <Dialog>
         <DialogTrigger asChild>
           <button className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-red-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-red-700 transition-colors">
             🔥 NEXT UPDATE
@@ -38,7 +38,7 @@ export default function Home() {
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
       <Navbar />
 
       {/* Toggle Buttons */}
