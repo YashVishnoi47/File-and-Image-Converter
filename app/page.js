@@ -14,7 +14,6 @@ import {
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("upload");
-  // const [activeTab, setActiveTab] = useState(second)
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-50">
