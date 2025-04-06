@@ -20,10 +20,9 @@ A powerful and beginner-friendly file converter built using **Next.js App Router
 ✅ Dark and **light** theme **support**  
 ✅ Enhanced **UI** and improved **user experience**
 ✅ Support for **additional file formats**
-✅ Supports file download after conversion  
 ✅ Expanded compatibility with more **image types**
 
-> More formats coming soon: PDF, Markdown, XML, WebP, and more...
+<!-- > More formats coming soon: PDF, Markdown, XML, WebP, and more... -->
 
 ---
 
