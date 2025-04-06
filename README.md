@@ -19,6 +19,7 @@ A powerful and beginner-friendly file converter built using **Next.js App Router
 
 ✅ Dark and **light** theme **support**  
 ✅ Enhanced **UI** and improved **user experience**
+
 ✅ Support for **additional file formats**
 ✅ Expanded compatibility with more **image types**
 
