@@ -95,7 +95,7 @@ const ImageConverter = () => {
       <div className="mt-6 w-full max-w-sm ">
         <Select value={convertImageType} onValueChange={setConvertImageType}>
           <SelectTrigger className="w-full text-black">
-            <p1>Select image conversion type </p1>
+            <p>Select image conversion type </p>
             <SelectValue placeholder="Select conversion type" />
           </SelectTrigger>
           <SelectContent>
