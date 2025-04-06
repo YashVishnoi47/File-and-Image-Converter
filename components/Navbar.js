@@ -12,7 +12,7 @@ const Navbar = () => {
       {/* GitHub Link */}
       <div className="flex items-center">
         <Link
-          href="https://github.com/yourusername" // update this URL
+          href="https://github.com/YashVishnoi47/File-and-Image-Converter.git" // update this URL
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-600 hover:text-black transition-colors duration-200"
