@@ -15,9 +15,7 @@ A powerful and beginner-friendly file converter built using **Next.js App Router
 
 ---
 
-## 📸 Demo
 
-[👉 Live Demo](#https://file-and-image-converter.vercel.app/)  
 
 
 ---
