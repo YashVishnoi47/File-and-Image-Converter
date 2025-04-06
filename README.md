@@ -13,18 +13,6 @@ A powerful and beginner-friendly file converter built using **Next.js App Router
 ✅ Supports file download after conversion  
 ✅ Built with performance in mind using **Edge-friendly APIs**
 
-## ✨ Next Update: April 5, 2025
-
-### Here’s what’s coming in the next release:
-
-✅ Dark and **light** theme **support**  
-✅ Enhanced **UI** and improved **user experience**
-
-✅ Support for **additional file formats**
-✅ Expanded compatibility with more **image types**
-
-<!-- > More formats coming soon: PDF, Markdown, XML, WebP, and more... -->
-
 ---
 
 ## 📸 Demo
@@ -65,6 +53,15 @@ _Share screenshots or a Loom video if available_
 > 🧠 Bonus: Auto-detects file extension and handles content download
 
 ---
+
+## ✨ Next Update: April 5, 2025
+
+### Here’s what’s coming in the next release:
+
+✅ Dark and **light** theme **support**  
+✅ Enhanced **UI** and improved **user experience**
+✅ Support for **additional file formats**
+✅ Expanded compatibility with more **image types**
 
 ## 🧑‍💻 How to Use (Locally)
 
