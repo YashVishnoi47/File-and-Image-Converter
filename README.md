@@ -31,7 +31,7 @@ _Share screenshots or a Loom video if available_
 | Next.js    | App Router-based full-stack framework   |
 | Sharp      | High-performance image processing       |
 | PapaParse  | CSV parsing and generation              |
-| HTML/CSS   | Custom file upload and UI styling       |
+| React   | Custom file upload and UI styling       |
 
 ---
 
