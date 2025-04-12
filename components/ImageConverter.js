@@ -64,11 +64,19 @@ const ImageConverter = () => {
             {({ getRootProps, getInputProps, isDragActive }) => (
               <div
                 {...getRootProps()}
-                className={`flex flex-col items-center justify-center w-full px-6 py-10 sm:py-16 text-center border-2 border-dashed rounded-2xl transition-all duration-300 ${
+                className={`flex flex-col items-center justify-center w-full px-6 py-10 sm:py-16 text-center border-2 border-dashed rounded-2xl transition-all duration-300 backdrop-blur-md ${
                   isDragActive
                     ? "border-blue-500 bg-blue-50"
-                    : "border-gray-300 bg-gray-50"
-                } cursor-pointer`}
+                    : "border-gray-300 bg-white/50"
+                } cursor-pointer shadow-xl`}
+                style={{
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  background: "rgba(255, 255, 255, 0.5)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                  boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.1)",
+                  borderRadius: "16px",
+                }}
               >
                 <input {...getInputProps()} />
                 <div className="space-y-3">
