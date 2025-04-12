@@ -15,6 +15,7 @@ export async function POST(req) {
   const converFileType = formData.get("converFileType");
 
   if (!file) {
+    alert("No file uploaded");
     return new Response("No file uploaded", { status: 400 });
   }
 

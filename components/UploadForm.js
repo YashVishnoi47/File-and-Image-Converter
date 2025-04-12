@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Loader from "./UtilityComponents/Loader";
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
@@ -68,73 +69,82 @@ const UploadForm = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-[80vh] items-center justify-center w-[95%] max-w-3xl mx-auto border-2 border-gray-300 rounded-2xl  p-4 sm:p-6 md:p-8 bg-white shadow-md">
-      {!file ? (
-        <Dropzone onDrop={(acceptedFiles) => handleFileChange(acceptedFiles)}>
-          {({ getRootProps, getInputProps, isDragActive }) => (
-            <section className="w-full">
+    <div className="flex flex-col items-center w-full px-4 sm:px-6 md:px-8">
+      {/* Card Wrapper */}
+      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-xl border border-gray-200 p-6 sm:p-10 mt-12">
+        {/* Dropzone or File Preview */}
+        {!file ? (
+          <Dropzone onDrop={handleFileChange}>
+            {({ getRootProps, getInputProps, isDragActive }) => (
               <div
                 {...getRootProps()}
-                className={`flex flex-col items-center justify-center min-h-[250px] sm:min-h-[300px] md:min-h-[350px] w-full rounded-xl transition-all duration-200 border-2 border-dashed ${
+                className={`flex flex-col items-center justify-center w-full px-6 py-10 sm:py-16 text-center border-2 border-dashed rounded-2xl transition-all duration-300 ${
                   isDragActive
                     ? "border-blue-500 bg-blue-50"
                     : "border-gray-300 bg-gray-50"
-                } cursor-pointer px-4 py-8 sm:py-12`}
+                } cursor-pointer`}
               >
                 <input {...getInputProps()} />
-                <div className="text-center space-y-2 sm:space-y-3">
-                  <p className="text-xl sm:text-2xl font-semibold text-gray-700">
+                <div className="space-y-3">
+                  <div className="text-4xl">📁</div>
+                  <h2 className="text-xl sm:text-2xl font-semibold text-gray-700">
                     {isDragActive
-                      ? "Drop the file here..."
-                      : "Upload your file to convert"}
-                  </p>
-                  <p className="text-gray-500 text-sm sm:text-base">
-                    Drag & drop a file here, or click to browse
+                      ? "Drop your file..."
+                      : "Drag & Drop to Upload"}
+                  </h2>
+                  <p className="text-sm text-gray-500">
+                    or click to browse from your device
                   </p>
                 </div>
               </div>
-            </section>
-          )}
-        </Dropzone>
-      ) : (
-        <div className="flex flex-col items-center justify-center min-h-[250px] sm:min-h-[300px] md:min-h-[350px] w-full text-center px-4">
-          <p className="text-base sm:text-lg text-gray-700 font-medium break-words max-w-full">
-            📄 {file.name}
-          </p>
-          <p className="text-sm text-gray-500 mt-2">File ready to convert</p>
+            )}
+          </Dropzone>
+        ) : (
+          <div className="flex flex-col items-center justify-center w-full text-center px-4 py-16 bg-gray-50 rounded-2xl">
+            <div className="text-5xl mb-2">✅</div>
+            <p className="text-lg font-medium text-gray-700 break-words max-w-full">
+              {file.name}
+            </p>
+            <p className="text-sm text-gray-500 mt-1">Ready for conversion</p>
+          </div>
+        )}
+
+        {/* Divider */}
+        <div className="w-full border-t border-gray-200 my-8" />
+
+        {/* Conversion Options */}
+        <div className="w-full max-w-md mx-auto">
+          <label className="block text-sm font-medium text-gray-600 mb-2">
+            Select Conversion Type
+          </label>
+          <Select value={converFileType} onValueChange={setConverFileType}>
+            <SelectTrigger className="w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800">
+              <SelectValue placeholder="Choose conversion" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="csv-json">CSV → JSON</SelectItem>
+              <SelectItem value="json-csv">JSON → CSV</SelectItem>
+              <SelectItem value="json-txt">JSON → TXT</SelectItem>
+              <SelectItem value="xml-json">XML → JSON</SelectItem>
+              <SelectItem value="json-xml">JSON → XML</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
-      )}
 
-      {/* Select conversion type */}
-      <div className="mt-6 w-full max-w-sm ">
-        <Select value={converFileType} onValueChange={setConverFileType}>
-          <SelectTrigger className="w-full text-black">
-            <p1>Select file conversion type  </p1>
-            <SelectValue placeholder="Select conversion type" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="csv-json">CSV → JSON</SelectItem>
-            <SelectItem value="json-csv">JSON → CSV</SelectItem>
-            <SelectItem value="json-txt">JSON → TXT</SelectItem>
-            <SelectItem value="xml-json">XML → JSON</SelectItem>
-            <SelectItem value="json-xml">JSON → XML</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      {/* Convert button */}
-      <div className="mt-6 w-full flex justify-center">
-        <button
-          onClick={() => handleConvert(conversionType)}
-          disabled={loading}
-          className={`w-full sm:w-auto px-5 py-2 rounded-xl font-semibold transition-colors duration-200 ${
-            loading
-              ? "bg-gray-400 text-white cursor-not-allowed"
-              : "bg-blue-600 text-white hover:bg-blue-700"
-          }`}
-        >
-          {loading ? "Converting..." : "Convert"}
-        </button>
+        {/* Convert Button */}
+        <div className="mt-8 w-full flex justify-center">
+          <button
+            onClick={() => handleConvert(converFileType)}
+            disabled={loading}
+            className={`w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+            }`}
+          >
+            {loading ? <Loader /> : "Convert File"}
+          </button>
+        </div>
       </div>
     </div>
   );
