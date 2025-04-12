@@ -54,8 +54,11 @@ const Navbar = ({ activeTab, setActiveTab }) => {
                     Image Converter
                   </NavigationMenuLink>
 
-                  <NavigationMenuLink className="text-sm text-gray-700 hover:text-white flex justify-center items-center w-36 transition-colors cursor-pointer hover:bg-[#C68EFD]">
-                    Audio Tools
+                  <NavigationMenuLink className="relative hover:cursor-wait text-sm text-gray-700 hover:text-white flex justify-center items-center gap-2 w-36 transition-colors cursor-pointer hover:bg-[#C68EFD] rounded-md py-2">
+                    PDF Creator
+                    <span className="text-xs bg-yellow-400 text-black font-semibold px-2 py-0.5 rounded-md">
+                      Coming Soon
+                    </span>
                   </NavigationMenuLink>
                 </div>
               </NavigationMenuContent>

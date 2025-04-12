@@ -71,7 +71,7 @@ const UploadForm = () => {
   return (
     <div className="flex flex-col items-center w-full px-4 sm:px-6 md:px-8">
       {/* Card Wrapper */}
-      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-xl border border-gray-200 p-6 sm:p-10 mt-12">
+      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-xl border border-gray-200 p-6 sm:p-10 mt-2">
         {/* Dropzone or File Preview */}
         {!file ? (
           <Dropzone onDrop={handleFileChange}>
