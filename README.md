@@ -52,7 +52,7 @@ A powerful and beginner-friendly file converter built using **Next.js App Router
 
 ---
 
-## ✨ Next Update: April 5, 2025
+
 
 ### Here’s what’s coming in the next release:
 
