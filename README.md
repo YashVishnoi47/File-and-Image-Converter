@@ -1,4 +1,4 @@
-# 🛠️ FAIC — Your Friendly Image and File Converter 🚀
+# 🛠️ Tools BUcket — Your Friendly Image and File Converter 🚀
 
 Convert your files with ease — from CSV to JSON, PNG to JPEG, and more!  
 A powerful and beginner-friendly file converter built using **Next.js App Router**, **Node.js**, and **Sharp**.
