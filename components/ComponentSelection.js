@@ -12,19 +12,31 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-const ComponentSelection = ({ activeTab, setActiveTab }) => {
+const ComponentSelection = ({ activeTab, setActiveTab, theme }) => {
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-50 relative px-4 sm:px-6 md:px-8">
+    <div
+      className={`flex flex-col items-center transition-all duration-200 ease-in-out min-h-screen bg-gray-50 relative px-4 sm:px-6 md:px-8 ${
+        theme === "dark" ? "bg-gray-900" : "bg-gray-50"
+      }`}
+    >
       {/* Page Heading */}
       <div className="w-full text-center mt-10 sm:mt-4">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#C68EFD] transition-all">
+        <h1
+          className={`text-3xl sm:text-4xl font-extrabold  transition-all ${
+            theme === "dark" ? "text-[#9D3CFF]" : "  text-[#C68EFD]"
+          }`}
+        >
           {activeTab === "upload" ? "File Converter" : "Image Converter"}
         </h1>
       </div>
 
       {/* Main Content */}
       <div className="w-full mt-8 max-w-4xl">
-        {activeTab === "upload" ? <UploadForm /> : <ImageConverter />}
+        {activeTab === "upload" ? (
+          <UploadForm theme={theme} />
+        ) : (
+          <ImageConverter theme={theme} />
+        )}
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/select";
 import Loader from "./UtilityComponents/Loader";
 
-const UploadForm = () => {
+const UploadForm = ({ theme }) => {
   const [file, setFile] = useState(null);
   const [converFileType, setConverFileType] = useState("JSON-XML");
   const [loading, setLoading] = useState(false);
@@ -71,22 +71,29 @@ const UploadForm = () => {
   return (
     <div className="flex flex-col items-center w-full px-4 sm:px-6 md:px-8">
       {/* Card Wrapper */}
-      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-xl border border-gray-200 p-6 sm:p-10 mt-2">
+      <div
+        className={`w-full max-w-3xl bg- rounded-3xl shadow-2xl border border-gray-200 p-6 sm:p-10 mt-2 ${
+          theme === "dark"
+            ? "bg-gray-800 shadow-[0_10px_20px_rgba(255,255,255,_0.3)]"
+            : "bg-white"
+        }`}
+      >
         {/* Dropzone or File Preview */}
         {!file ? (
           <Dropzone onDrop={handleFileChange}>
             {({ getRootProps, getInputProps, isDragActive }) => (
               <div
                 {...getRootProps()}
-                className={`flex flex-col items-center justify-center w-full px-6 py-10 sm:py-16 text-center border-2 border-dashed rounded-2xl transition-all duration-300 backdrop-blur-md ${
-                  isDragActive
-                    ? "border-blue-500 bg-blue-50"
-                    : "border-gray-300 bg-white/50"
-                } cursor-pointer shadow-xl`}
+                className={`flex flex-col items-center justify-center w-full px-6 py-10 sm:py-16 text-center border-2 border-dashed rounded-2xl transition-all duration-300 backdrop-blur-md  ${
+                  isDragActive && "border-blue-500 bg-blue-50"
+                  // : "border-gray-300 bg-white/50"
+                } cursor-pointer shadow-xl ${
+                  theme === "dark" ? "bg-white text-white" : "bg-white"
+                }`}
                 style={{
                   backdropFilter: "blur(10px)",
                   WebkitBackdropFilter: "blur(10px)",
-                  background: "rgba(255, 255, 255, 0.5)",
+                  // background: "rgba(255, 255, 255, 0.5)",
                   border: "1px solid rgba(255, 255, 255, 0.3)",
                   boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.1)",
                   borderRadius: "16px",
@@ -95,12 +102,20 @@ const UploadForm = () => {
                 <input {...getInputProps()} />
                 <div className="space-y-3">
                   <div className="text-4xl">📁</div>
-                  <h2 className="text-xl sm:text-2xl font-semibold text-gray-700">
+                  <h2
+                    className={`text-xl sm:text-2xl font-semibold text-gray-700 ${
+                      theme === "dark" && "text-black"
+                    }`}
+                  >
                     {isDragActive
                       ? "Drop your file..."
                       : "Drag & Drop to Upload"}
                   </h2>
-                  <p className="text-sm text-gray-500">
+                  <p
+                    className={`text-sm text-gray-500 ${
+                      theme === "dark" && "text-black"
+                    }`}
+                  >
                     or click to browse from your device
                   </p>
                 </div>
@@ -122,11 +137,19 @@ const UploadForm = () => {
 
         {/* Conversion Options */}
         <div className="w-full max-w-md mx-auto">
-          <label className="block text-sm font-medium text-gray-600 mb-2">
+          <label
+            className={`block text-sm font-medium  mb-2 ${
+              theme === "dark" ? "text-white" : "text-gray-600"
+            }`}
+          >
             Select Conversion Type
           </label>
           <Select value={converFileType} onValueChange={setConverFileType}>
-            <SelectTrigger className="w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800">
+            <SelectTrigger
+              className={`w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800 ${
+                theme === "dark" ? "text-white" : "text-gray-600"
+              }`}
+            >
               <SelectValue placeholder="Choose conversion" />
             </SelectTrigger>
             <SelectContent>
@@ -144,10 +167,10 @@ const UploadForm = () => {
           <button
             onClick={() => handleConvert(converFileType)}
             disabled={loading}
-            className={`w-full sm:w-auto px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 ${
+            className={`w-full sm:w-auto cursor-pointer px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 ${
               loading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+                : "bg-[#9d3cff] hover:bg-[#bc78ff] text-gray-400"
             }`}
           >
             {loading ? <Loader /> : "Convert File"}

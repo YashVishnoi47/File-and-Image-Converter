@@ -31,10 +31,8 @@ const StyledWrapper = styled.div`
     padding: 10px 10px;
     gap: 15px;
     background-color: #181717;
-    // outline: 3px #181717 solid;
     outline-offset: -3px;
     border-radius: 100%;
-    border: 1px solid #000;
     cursor: pointer;
     transition: 400ms;
   }

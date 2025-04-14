@@ -15,11 +15,22 @@ import ComponentSelection from "@/components/ComponentSelection";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("upload");
+  const [theme, setTheme] = useState("light");
 
   return (
     <div className="w-full h-full">
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
-      <ComponentSelection activeTab={activeTab} setActiveTab={setActiveTab} />;
+      <Navbar
+        theme={theme}
+        setTheme={setTheme}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+      <ComponentSelection
+        theme={theme}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+      
     </div>
   );
 }
