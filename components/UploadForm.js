@@ -183,10 +183,4 @@ const UploadForm = ({ theme }) => {
 
 export default UploadForm;
 
-{
-  /* <input
-        type="file"
-        onChange={handleFileChange}
-        className="w-full border-2 h-[90%]"
-      /> */
-}
+

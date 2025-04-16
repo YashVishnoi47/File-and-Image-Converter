@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import UploadForm from "@/components/UploadForm";
 import ImageConverter from "@/components/ImageConverter";
+import PdfConverter from "./PdfConverter";
 import {
   Dialog,
   DialogTrigger,
@@ -26,7 +27,11 @@ const ComponentSelection = ({ activeTab, setActiveTab, theme }) => {
             theme === "dark" ? "text-[#9D3CFF]" : "  text-[#C68EFD]"
           }`}
         >
-          {activeTab === "upload" ? "File Converter" : "Image Converter"}
+          {activeTab === "upload"
+            ? "File Converter"
+            : activeTab === "image"
+            ? "Image Converter"
+            : "PDF Creator"}
         </h1>
       </div>
 
@@ -34,8 +39,10 @@ const ComponentSelection = ({ activeTab, setActiveTab, theme }) => {
       <div className="w-full mt-8 max-w-4xl">
         {activeTab === "upload" ? (
           <UploadForm theme={theme} />
-        ) : (
+        ) : activeTab === "image" ? (
           <ImageConverter theme={theme} />
+        ) : (
+          <PdfConverter />
         )}
       </div>
     </div>
