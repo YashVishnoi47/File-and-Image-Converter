@@ -14,7 +14,6 @@ const PdfConverter = ({ theme }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (files.length === 0) return alert("No files selected.");
-
     const formData = new FormData();
     files.forEach((file) => formData.append("file", file));
 

@@ -29,6 +29,8 @@ export const POST = async (req) => {
     } else if (fileType === "image/png") {
       image = await pdfDoc.embedPng(imageBytes);
     } else {
+      console.error(`Only PNG and JPG File types are Supported. ${fileType}`);
+      // Optionally, you can handle unsupported file types here
       continue; // skip unsupported file types
     }
 

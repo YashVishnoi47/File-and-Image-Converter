@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import UploadForm from "@/components/UploadForm";
 import ImageConverter from "@/components/ImageConverter";
 import PdfConverter from "./PdfConverter";
+import ImageSizeReducer from "./ImageSizeReducer";
 import {
   Dialog,
   DialogTrigger,
@@ -31,6 +32,8 @@ const ComponentSelection = ({ activeTab, setActiveTab, theme }) => {
             ? "File Converter"
             : activeTab === "image"
             ? "Image Converter"
+            : activeTab === "ImageSizeReducer"
+            ? "Image Size Reducer"
             : "PDF Creator"}
         </h1>
       </div>
@@ -41,6 +44,8 @@ const ComponentSelection = ({ activeTab, setActiveTab, theme }) => {
           <UploadForm theme={theme} />
         ) : activeTab === "image" ? (
           <ImageConverter theme={theme} />
+        ) : activeTab === "ImageSizeReducer" ? (
+          <ImageSizeReducer theme={theme} />
         ) : (
           <PdfConverter />
         )}

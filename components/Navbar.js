@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { MdDarkMode } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
-import GithubIcon from "./UtilityComponents/GithubIcon";
+import { FaGithub } from "react-icons/fa";
+// import GithubIcon from "./UtilityComponents/GithubIcon";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -35,14 +36,15 @@ const Navbar = ({ activeTab, setActiveTab, theme, setTheme }) => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm sm:text-base font-medium px-3 py-2">
+                  <NavigationMenuTrigger className="text-sm sm:text-base text-black font-medium px-3 py-2">
                     Tools
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-white shadow-lg border border-gray-200 rounded-xl mt-2 z-50">
-                    <div className="p-4 flex flex-col sm:flex-row gap-2 w-72 sm:w-auto">
+
+                  <NavigationMenuContent className="bg-white flex justify-center items-center rounded-xl">
+                    <div className="p-2 flex sm:flex-wrap justify-start items-center flex-col sm:flex-row gap-2 w-72 sm:w-[500px]">
                       <NavigationMenuLink
                         onClick={() => setActiveTab("upload")}
-                        className={`w-full sm:w-36 text-sm px-4 py-2 rounded-md text-center transition-all cursor-pointer ${
+                        className={`w-full sm:w-36 flex justify-center items-center text-sm px-4 py-2 rounded-md text-center transition-all cursor-pointer ${
                           activeTab === "upload"
                             ? "bg-[#C68EFD] text-white font-semibold"
                             : "bg-white text-gray-800 hover:bg-[#e5d0ff]"
@@ -50,9 +52,10 @@ const Navbar = ({ activeTab, setActiveTab, theme, setTheme }) => {
                       >
                         Files Converter
                       </NavigationMenuLink>
+
                       <NavigationMenuLink
                         onClick={() => setActiveTab("image")}
-                        className={`w-full sm:w-36 text-sm px-4 py-2 rounded-md text-center transition-all cursor-pointer ${
+                        className={`w-full sm:w-36 flex justify-center items-center text-sm px-4 py-2 rounded-md text-center transition-all cursor-pointer ${
                           activeTab === "image"
                             ? "bg-[#C68EFD] text-white font-semibold"
                             : "bg-white text-gray-800 hover:bg-[#e5d0ff]"
@@ -60,18 +63,33 @@ const Navbar = ({ activeTab, setActiveTab, theme, setTheme }) => {
                       >
                         Image Converter
                       </NavigationMenuLink>
+
                       <NavigationMenuLink
                         onClick={() => {
                           setActiveTab("PdfConverter");
                           setIsMenuOpen(false);
                         }}
-                        className={`w-full sm:w-36 text-sm px-4 py-2 rounded-md text-center transition-all cursor-pointer ${
+                        className={`w-full sm:w-36 flex justify-center items-center text-sm px-4 py-2 rounded-md text-center transition-all cursor-pointer ${
                           activeTab === "pdfcreator"
                             ? "bg-[#C68EFD] text-white font-semibold"
                             : "bg-white text-gray-800 hover:bg-[#e5d0ff]"
                         }`}
                       >
                         PDF Creater
+                      </NavigationMenuLink>
+
+                      <NavigationMenuLink
+                        onClick={() => {
+                          setActiveTab("ImageSizeReducer");
+                          setIsMenuOpen(false);
+                        }}
+                        className={`w-full sm:w-36 flex justify-center items-center text-sm px-4 py-2 rounded-md text-center transition-all cursor-pointer ${
+                          activeTab === "ImageSizeReducer"
+                            ? "bg-[#C68EFD] text-white font-semibold"
+                            : "bg-white text-gray-800 hover:bg-[#e5d0ff]"
+                        }`}
+                      >
+                        Image Compressor
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -99,7 +117,8 @@ const Navbar = ({ activeTab, setActiveTab, theme, setTheme }) => {
             className="text-xl"
             aria-label="GitHub"
           >
-            <GithubIcon className="hover:scale-110 transition-transform" />
+            <FaGithub className="hover:scale-110 text-2xl transition-scale duration-200" />
+            {/* <GithubIcon className="hover:scale-110 transition-transform" /> */}
           </Link>
         </div>
 
@@ -173,8 +192,7 @@ const Navbar = ({ activeTab, setActiveTab, theme, setTheme }) => {
             target="_blank"
             className="flex items-center gap-2 text-sm px-4"
           >
-            <GithubIcon className="text-lg" />
-            GitHub
+            <FaGithub className="hover:scale-110 text-2xl transition-scale duration-200" />
           </Link>
         </div>
       )}
