@@ -2,6 +2,8 @@ import Papa from "papaparse";
 import sharp from "sharp";
 import { parseString } from "xml2js";
 import js2xmlparser from "js2xmlparser";
+const potrace = require("potrace");
+const fs = require("fs");
 
 export const config = {
   api: {
@@ -97,22 +99,49 @@ export async function POST(req) {
     });
   }
 
-  if (converFileType === "JSON-XML") {
+  if (converFileType === "XML-JSON") {
     const buffer = Buffer.from(await file.arrayBuffer());
 
-    const JSONText = buffer.toString("utf-8");
-    const result = js2xmlparser.parse("root", JSON.parse(JSONText));
+    const XMLText = buffer.toString("utf-8");
+    const result = parseString(XMLText, (err, result) => {
+      if (err) {
+        throw new Error("Error parsing XML to JSON");
+      }
+      return JSON.stringify(result, null, 2);
+    });
 
     return new Response(result, {
       headers: {
         "Content-Type": "application/json",
         "Content-Disposition": `attachment; filename="${file.name.replace(
-          ".json",
-          ".xml"
+          ".xml",
+          ".json"
         )}"`,
       },
     });
   }
 
-  
+  // if (converFileType === "PNG-SVG") {
+  //   const buffer = Buffer.from(await file.arrayBuffer());
+
+  //   const svg = await new Promise((resolve, reject) => {
+  //     potrace.trace(buffer, (err, svg) => {
+  //       if (err) {
+  //         reject(err);
+  //       } else {
+  //         resolve(svg);
+  //       }
+  //     });
+  //   });
+
+  //   return new Response(svg, {
+  //     headers: {
+  //       "Content-Type": "image/svg+xml",
+  //       "Content-Disposition": `attachment; filename="${file.name.replace(
+  //         ".png",
+  //         ".svg"
+  //       )}"`,
+  //     },
+  //   });
+  // }
 }

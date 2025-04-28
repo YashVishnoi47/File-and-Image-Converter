@@ -121,14 +121,14 @@ const ImageSizeReducer = ({ theme }) => {
         {/* Divider */}
         <div className="w-full border-t border-gray-200 my-8" />
 
-        {/* Conversion Options */}
+        {/* Compression Options */}
         <div className="w-full max-w-md mx-auto">
           <label
             className={`block text-sm font-medium  mb-2 ${
               theme === "dark" ? "text-white" : "text-gray-600"
             }`}
           >
-            Select Image Conversion Type
+            Select Image Compression Quality
           </label>
           <Select value={quality} onValueChange={setQuality}>
             <SelectTrigger
@@ -140,35 +140,35 @@ const ImageSizeReducer = ({ theme }) => {
             </SelectTrigger>
 
             <SelectContent>
-              <SelectItem className="uppercase" value="10">
-                10
+              <SelectItem className="" value="10">
+                Compress Image by 10 %
               </SelectItem>
-              <SelectItem className="uppercase" value="10">
-                10
+              <SelectItem className="" value="20">
+                Compress Image by 20 %
               </SelectItem>
-              <SelectItem className="uppercase" value="30">
-                30
+              <SelectItem className="" value="30">
+                Compress Image by 30 %
               </SelectItem>
-              <SelectItem className="uppercase" value="40">
-                40
+              <SelectItem className="" value="40">
+                Compress Image by 40 %
               </SelectItem>
-              <SelectItem className="uppercase" value="50">
-                50
+              <SelectItem className="" value="50">
+                Compress Image by 50 %
               </SelectItem>
-              <SelectItem className="uppercase" value="60">
-                60
+              <SelectItem className="" value="60">
+                Compress Image by 60 %
               </SelectItem>
-              <SelectItem className="uppercase" value="70">
-                70
+              <SelectItem className="" value="70">
+                Compress Image by 70 %
               </SelectItem>
-              <SelectItem className="uppercase" value="80">
-                80
+              <SelectItem className="" value="80">
+                Compress Image by 80 %
               </SelectItem>
-              <SelectItem className="uppercase" value="90">
-                90
+              <SelectItem className="" value="90">
+                Compress Image by 90 %
               </SelectItem>
-              <SelectItem className="uppercase" value="100">
-                100
+              <SelectItem className="u" value="100">
+                Compress Image by 100 %
               </SelectItem>
             </SelectContent>
           </Select>

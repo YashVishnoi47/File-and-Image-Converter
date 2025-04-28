@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import Loader from "./UtilityComponents/Loader";
+import Image from "next/image";
 
 const PdfConverter = ({ theme }) => {
   const [loading, setLoading] = useState(false);
@@ -69,7 +70,14 @@ const PdfConverter = ({ theme }) => {
               >
                 <input {...getInputProps()} />
                 <div className="space-y-3">
-                  <div className="text-4xl">📁</div>
+                  <div className=" flex justify-center items-center">
+                    <Image
+                      width={45}
+                      height={45}
+                      alt="PDF"
+                      src={"/icons/pdf.png"}
+                    ></Image>
+                  </div>
                   <h2 className="text-xl sm:text-2xl font-semibold">
                     {isDragActive
                       ? "Drop your files..."

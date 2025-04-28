@@ -56,11 +56,13 @@ const UploadForm = ({ theme }) => {
         ? "json"
         : converFileType === "JSON-TXT"
         ? "txt"
+        // : converFileType === "PNG-SVG"
+        // ? "svg"
         : converFileType === "png"
         ? "png"
         : "jpg";
 
-    a.download = `${file.name}.${ext}`;
+    a.download = `${file.name}`;
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -158,6 +160,7 @@ const UploadForm = ({ theme }) => {
               <SelectItem value="json-txt">JSON → TXT</SelectItem>
               <SelectItem value="xml-json">XML → JSON</SelectItem>
               <SelectItem value="json-xml">JSON → XML</SelectItem>
+              {/* <SelectItem value="PNG-SVG">PNG-SVG</SelectItem> */}
             </SelectContent>
           </Select>
         </div>

@@ -17,7 +17,7 @@ export async function POST(req) {
   return new Response(compressed, {
     headers: {
       "Content-Type": "image/jpeg",
-      "Content-Disposition": `attachment; filename="${"Compressed-",image.name}`,
+      "Content-Disposition": `attachment; filename="${"ToolsBucket-Compressed-",image.name}`,
     },
   });
 }

@@ -23,6 +23,7 @@
     "papaparse": "^5.5.2",
     "path": "^0.12.7",
     "pdf-lib": "^1.17.1",
+    "potrace": "^2.1.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.8",
